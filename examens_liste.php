@@ -40,7 +40,7 @@
                 <td><?php echo $ligne['coef'] ?></td>
 
                 <td>
-                    <a href="saisie_notes.php?">
+                    <a href="saisie_notes.php?id=<?php echo $ligne['id'] ?>">
                         <button type="button" class="btn btn-success">Ajouter</button>
                     </a>
                 </td>
