@@ -3,6 +3,15 @@
 ?>
 
 <div class="container">
+    <?php
+    if (isset($_SESSION['type']) and ($_SESSION['type'] == "prof")) {
+        if (isset($_GET['id']) and (is_numeric($_GET['id']) ))  {
+            $req = $bdd->prepare("DELETE FROM examens WHERE id = ?");
+            $req->execute([$_GET['id']]);
+        }
+    }
+
+    ?>
     <h1>Liste des examens</h1>
     <table class="table table-hover">
         <thead>
@@ -43,7 +52,7 @@
                 </td>
                 <!-- -->
                 <td>
-                    <a href="index.php">
+                    <a href="examens_liste.php?id=<?php echo $ligne['id'] ?>">
                         <button type="button" class="btn btn-danger">Suprimer</button>
                     </a>
                 </td>
